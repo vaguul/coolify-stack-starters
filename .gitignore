@@ -1,0 +1,6 @@
+.env
+.env.local
+.env.deploy
+node_modules/
+dist/
+coverage/
