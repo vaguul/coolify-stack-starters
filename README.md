@@ -21,7 +21,7 @@ The goal is simple: start from a clean template instead of rebuilding the same P
 
 ## Author
 
-Built and published by [vuguul](https://github.com/vuguul).
+Built and published by Valaksi.
 
 ## License
 
