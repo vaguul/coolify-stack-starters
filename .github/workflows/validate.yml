@@ -1,0 +1,23 @@
+name: validate
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  docker-compose-check:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        stack:
+          - node-postgres-redis
+          - php-mariadb
+          - python-worker
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate compose
+        run: docker compose -f "${{ matrix.stack }}/docker-compose.yml" config > /dev/null
