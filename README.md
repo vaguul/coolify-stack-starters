@@ -1,6 +1,6 @@
 # coolify-stack-starters
 
-![Validate](https://github.com/valaksi/coolify-stack-starters/actions/workflows/validate.yml/badge.svg)
+![Validate](https://github.com/vaguul/coolify-stack-starters/actions/workflows/validate.yml/badge.svg)
 ![MIT License](https://img.shields.io/badge/license-MIT-8fe3c7)
 
 Small starter stacks for self-hosted apps on Docker or Coolify, maintained by Vaguul under the Zemiax personal software studio.
