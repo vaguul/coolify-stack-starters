@@ -3,7 +3,7 @@
 ![Validate](https://github.com/valaksi/coolify-stack-starters/actions/workflows/validate.yml/badge.svg)
 ![MIT License](https://img.shields.io/badge/license-MIT-8fe3c7)
 
-Small starter stacks for self-hosted apps on Docker or Coolify.
+Small starter stacks for self-hosted apps on Docker or Coolify, maintained by Vaguul under the Zemiax personal software studio.
 
 The goal is simple: start from a clean template instead of rebuilding the same PHP, Node, database, and worker setup every time.
 
@@ -35,7 +35,7 @@ docker compose -f python-worker/docker-compose.yml config
 
 ## Author
 
-Built and published by Valaksi.
+Built and maintained by Vaguul for Zemiax.
 
 ## License
 
