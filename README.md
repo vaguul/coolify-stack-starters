@@ -1,6 +1,6 @@
 # coolify-stack-starters
 
-![Validate](https://github.com/vuguul/coolify-stack-starters/actions/workflows/validate.yml/badge.svg)
+![Validate](https://github.com/valaksi/coolify-stack-starters/actions/workflows/validate.yml/badge.svg)
 ![MIT License](https://img.shields.io/badge/license-MIT-8fe3c7)
 
 Small starter stacks for self-hosted apps on Docker or Coolify.
@@ -12,6 +12,20 @@ The goal is simple: start from a clean template instead of rebuilding the same P
 - `node-postgres-redis`
 - `php-mariadb`
 - `python-worker`
+
+## Validate
+
+```bash
+docker compose -f node-postgres-redis/docker-compose.yml config
+docker compose -f php-mariadb/docker-compose.yml config
+docker compose -f python-worker/docker-compose.yml config
+```
+
+## Security notes
+
+- Replace every sample password before deploying.
+- Keep `.env` files out of Git.
+- Bind only the ports that the application actually needs.
 
 ## Who this is for
 
