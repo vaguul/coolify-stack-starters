@@ -21,6 +21,18 @@ docker compose -f php-mariadb/docker-compose.yml config
 docker compose -f python-worker/docker-compose.yml config
 ```
 
+## Healthcheck expectations
+
+Use these checks after deploying a starter locally or through Coolify:
+
+| Starter | Public surface | Internal services | Healthy when |
+| --- | --- | --- | --- |
+| `node-postgres-redis` | `api` on `${API_PORT:-3000}` | `postgres`, `redis` | Postgres answers `pg_isready`, Redis answers `PING`, and the API starts after both dependencies are healthy. |
+| `php-mariadb` | `app` on `${APP_PORT:-8080}` | `mariadb` | MariaDB answers `mariadb-admin ping` and the app starts after the database is healthy. |
+| `python-worker` | none by default | `worker` | The worker container stays running with `restart: unless-stopped` and does not require an inbound public port. |
+
+For production deployments, expose only the application service that needs traffic. Databases, Redis, and background workers should stay private to the Docker network unless your provider requires a separate internal network configuration.
+
 ## Security notes
 
 - Replace every sample password before deploying.
