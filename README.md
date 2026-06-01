@@ -21,15 +21,15 @@ docker compose -f php-mariadb/docker-compose.yml config
 docker compose -f python-worker/docker-compose.yml config
 ```
 
-## Healthcheck expectations
+## Validation matrix
 
 Use these checks after deploying a starter locally or through Coolify:
 
-| Starter | Public surface | Internal services | Healthy when |
-| --- | --- | --- | --- |
-| `node-postgres-redis` | `api` on `${API_PORT:-3000}` | `postgres`, `redis` | Postgres answers `pg_isready`, Redis answers `PING`, and the API starts after both dependencies are healthy. |
-| `php-mariadb` | `app` on `${APP_PORT:-8080}` | `mariadb` | MariaDB answers `mariadb-admin ping` and the app starts after the database is healthy. |
-| `python-worker` | none by default | `worker` | The worker container stays running with `restart: unless-stopped` and does not require an inbound public port. |
+| Starter | Static validation command | Expected services | Public surface | Health behavior | Host requirements |
+| --- | --- | --- | --- | --- | --- |
+| `node-postgres-redis` | `docker compose -f node-postgres-redis/docker-compose.yml config` | `api`, `postgres`, `redis` | `api` on `${API_PORT:-3000}` | Postgres must answer `pg_isready`, Redis must answer `PING`, and `api` waits for both dependencies to become healthy. | Port `${API_PORT:-3000}` must be free if published on the host. Uses named volumes `postgres-data` and `redis-data`. |
+| `php-mariadb` | `docker compose -f php-mariadb/docker-compose.yml config` | `app`, `mariadb` | `app` on `${APP_PORT:-8080}` | MariaDB must answer `mariadb-admin ping`, and `app` waits for the database to become healthy. | Port `${APP_PORT:-8080}` must be free if published on the host. Uses named volume `mariadb-data`. |
+| `python-worker` | `docker compose -f python-worker/docker-compose.yml config` | `worker` | none by default | The worker container should stay running with `restart: unless-stopped`. No dependency healthcheck is required. | No inbound host port required. Confirm the worker has the environment variables it needs before enabling real jobs. |
 
 For production deployments, expose only the application service that needs traffic. Databases, Redis, and background workers should stay private to the Docker network unless your provider requires a separate internal network configuration.
 
