@@ -7,6 +7,8 @@ Small starter stacks for self-hosted apps on Docker or Coolify, maintained by Va
 
 The goal is simple: start from a clean template instead of rebuilding the same PHP, Node, database, and worker setup every time.
 
+Use this repository as a GitHub template when you want to copy the starters into a new project.
+
 ## Included starters
 
 - `node-postgres-redis`
