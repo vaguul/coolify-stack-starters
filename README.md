@@ -3,7 +3,7 @@
 ![Validate](https://github.com/vaguul/coolify-stack-starters/actions/workflows/validate.yml/badge.svg)
 ![MIT License](https://img.shields.io/badge/license-MIT-8fe3c7)
 
-Small starter stacks for self-hosted apps on Docker or Coolify, maintained by Vaguul under the Zemiax personal software studio.
+Small starter stacks for self-hosted apps on Docker or Coolify, maintained by Vaguul.
 
 The goal is simple: start from a clean template instead of rebuilding the same PHP, Node, database, and worker setup every time.
 
@@ -49,7 +49,7 @@ For production deployments, expose only the application service that needs traff
 
 ## Author
 
-Built and maintained by Vaguul for Zemiax.
+Built and maintained by Vaguul.
 
 ## License
 
